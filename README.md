@@ -1,4 +1,3 @@
-[![MIT License][license-shield]][license-url]
 
 <br />
 <div align="center">
@@ -32,7 +31,6 @@ HomeKeeper is a comprehensive web-based application designed to help homeowners 
 * [![HTML5][HTML-shield]][HTML-url]
 * [![CSS3][CSS-shield]][CSS-url]
 * [![JavaScript][JavaScript-shield]][JavaScript-url]
-* [![LocalStorage][LocalStorage-shield]][LocalStorage-url]
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -155,10 +153,6 @@ All data is stored locally in your browser using **localStorage**. This means:
 ✅ **No Internet Required** - Works completely offline  
 ✅ **Fast Performance** - Instant data access  
 
-⚠️ **Important Notes:**
-- Data is specific to each browser and device
-- Clearing browser data will delete all records
-- No automatic backup - consider exporting your data regularly
 
 ## Features Overview
 
@@ -186,8 +180,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
-Your Name - your.email@example.com
 
 Project Link: [https://github.com/yourusername/HomeKeeper_Friendly](https://github.com/yourusername/HomeKeeper_Friendly)
 
