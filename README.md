@@ -173,15 +173,11 @@ All data is stored locally in your browser using **localStorage**. This means:
 - ✅ Edge
 - ✅ Any modern browser with localStorage support
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/yourusername/HomeKeeper_Friendly](https://github.com/yourusername/HomeKeeper_Friendly)
+Project Link: [https://github.com/shomoukh-as/HomeKeeper_Friendly](https://github.com/shomoukh-as/HomeKeeper_Friendly)
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
