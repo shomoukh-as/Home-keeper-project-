@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Appliances — Home Keeper</title><link rel="stylesheet" href="css/style.css" /></head><body class="bg-soft">
+<header class="topbar"><div class="brand">🏠 <strong>Home Keeper</strong></div><nav class="nav"><a href="dashboard.html">Dashboard</a><a href="appliances.html" class="active">Appliances</a><a href="invoices.html">Invoices</a><a href="warranty.html">Warranty</a><a href="maintenance.html">Maintenance</a><button id="logout" class="btn ghost">Logout</button></nav></header>
+<main class="container">
+  <section class="card">
+    <div class="row space">
+      <h2>My Appliances</h2>
+      <div>
+        <button id="btn-new" class="btn primary">+ Add Appliance</button>
+      </div>
+    </div>
+    <input id="search" placeholder="Search by name/brand/model" class="mb" />
+    <table class="table" id="tbl">
+      <thead><tr><th>Name</th><th>Brand</th><th>Model</th><th>Purchase</th><th>Warranty end</th><th>Actions</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+<!-- modal area -->
+<div id="modal" class="modal hidden"><div class="modal-panel"><header><h3 id="modal-title">Add Appliance</h3><button id="close-modal" class="btn close">✕</button></header><div class="modal-body" id="modal-body"></div><footer class="modal-footer" id="modal-footer"></footer></div></div>
+<script src="js/utils.js"></script><script src="js/auth.js"></script><script src="js/appliances.js"></script></body></html>

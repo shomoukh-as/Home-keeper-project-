@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Invoices — Home Keeper</title><link rel="stylesheet" href="css/style.css" /></head><body class="bg-soft">
+<header class="topbar"><div class="brand">🏠 <strong>Home Keeper</strong></div><nav class="nav"><a href="dashboard.html">Dashboard</a><a href="appliances.html">Appliances</a><a href="invoices.html" class="active">Invoices</a><a href="warranty.html">Warranty</a><a href="maintenance.html">Maintenance</a><button id="logout" class="btn ghost">Logout</button></nav></header>
+<main class="container">
+  <section class="card">
+    <div class="row space"><h2>Invoices & Purchases</h2><button id="btn-add" class="btn primary">+ Add Invoice</button></div>
+    <input id="search-inv" placeholder="Search by appliance/store/invoice#" class="mb" />
+    <table class="table" id="tbl-inv"><thead><tr><th>Appliance</th><th>Invoice #</th><th>Date</th><th>Amount</th><th>Store</th><th>Actions</th></tr></thead><tbody></tbody></table>
+  </section>
+</main>
+<div id="modal" class="modal hidden"><div class="modal-panel"><header><h3 id="modal-title">Add Invoice</h3><button id="close-modal" class="btn close">✕</button></header><div class="modal-body" id="modal-body"></div><footer class="modal-footer" id="modal-footer"></footer></div></div>
+<script src="js/utils.js"></script><script src="js/auth.js"></script><script src="js/invoices.js"></script></body></html>

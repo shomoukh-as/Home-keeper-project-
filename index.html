@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Home Keeper — Login</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-soft">
+  <main class="auth-wrap">
+    <div class="card auth-card">
+      <div class="logo">🏠</div>
+      <h1>Home Keeper</h1>
+      <p class="muted">Friendly appliance manager — data saved in your browser.</p>
+
+      <section id="login-section">
+        <h2>Sign in</h2>
+        <form id="login-form" class="stack">
+          <input id="login-username" placeholder="Username" required />
+          <input id="login-password" type="password" placeholder="Password" required />
+          <div class="row"><button class="btn primary" type="submit">Login</button></div>
+        </form>
+        <p class="muted">No account? <a id="to-register" href="#">Create one</a></p>
+        <p id="login-msg" class="msg"></p>
+      </section>
+
+      <section id="register-section" class="hidden">
+        <h2>Create account</h2>
+        <form id="register-form" class="stack">
+          <input id="reg-username" placeholder="Choose a username" required />
+          <input id="reg-password" type="password" placeholder="Choose a password" required />
+          <div class="row"><button class="btn primary" type="submit">Register</button></div>
+        </form>
+        <p class="muted">Already have an account? <a id="to-login" href="#">Sign in</a></p>
+        <p id="reg-msg" class="msg"></p>
+      </section>
+
+      <small class="muted">Frontend demo — no server. Keep sensitive data out of this demo.</small>
+    </div>
+  </main>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script>
+document.getElementById('to-register').addEventListener('click', e=>{ e.preventDefault(); document.getElementById('login-section').classList.add('hidden'); document.getElementById('register-section').classList.remove('hidden'); });
+document.getElementById('to-login').addEventListener('click', e=>{ e.preventDefault(); document.getElementById('register-section').classList.add('hidden'); document.getElementById('login-section').classList.remove('hidden'); });
+</script>
+</body>
+</html>
