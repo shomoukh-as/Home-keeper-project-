@@ -172,7 +172,6 @@ All data is stored locally in your browser using **localStorage**. This means:
 - ✅ Firefox
 - ✅ Safari
 - ✅ Edge
-- ✅ Any modern browser with localStorage support
 
 ## Testing
 
@@ -275,14 +274,6 @@ tests/
 - **Fast Execution** - Unit/feature tests run in milliseconds
 - **Comprehensive Coverage** - Every module and workflow tested
 - **CI/CD Ready** - Designed for continuous integration pipelines
-
-### 📖 Detailed Documentation
-
-For comprehensive testing documentation, examples, and best practices, see:
-- [tests/README.md](tests/README.md) - Complete testing guide
-- [jest.config.js](jest.config.js) - Jest configuration
-- [package.json](package.json) - Test scripts and dependencies
-
 
 <!-- CONTACT -->
 ## Contact
