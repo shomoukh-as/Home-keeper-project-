@@ -1,0 +1,28 @@
+{
+  "name": "homekeeper",
+  "version": "1.0.0",
+  "description": "A friendly home appliance management system",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest tests/unit",
+    "test:feature": "jest tests/feature",
+    "test:system": "jest tests/system",
+    "test:release": "jest tests/release",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "homekeeper",
+    "appliance",
+    "management"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "puppeteer": "^21.6.1"
+  }
+}

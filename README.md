@@ -25,6 +25,7 @@ HomeKeeper is a comprehensive web-based application designed to help homeowners 
 * ⏰ **Warranty Tracker** - Monitor warranty periods and get notified when they're expiring
 * 🔍 **Search & Filter** - Quickly find any record with built-in search functionality
 * 💾 **Local Storage** - All your data is stored locally in your browser for privacy
+* ✅ **Comprehensive Testing** - Full test coverage with unit, feature, system, and release tests
 
 ### Built With
 
@@ -172,6 +173,115 @@ All data is stored locally in your browser using **localStorage**. This means:
 - ✅ Safari
 - ✅ Edge
 - ✅ Any modern browser with localStorage support
+
+## Testing
+
+HomeKeeper includes a **comprehensive 4-level testing suite** ensuring reliability, quality, and production readiness.
+
+### 📊 Testing Overview
+
+| Test Level | Files | Tests | Purpose |
+|-----------|-------|-------|----------|
+| **Unit Tests** | 5 | 80+ | Test individual functions and modules |
+| **Feature Tests** | 4 | 50+ | Test complete user workflows |
+| **System Tests** | 3 | 30+ | End-to-end browser automation |
+| **Release Tests** | 3 | 40+ | Production readiness validation |
+| **Total** | **15** | **200+** | **Complete coverage** |
+
+### 🎯 What's Tested
+
+#### Unit Tests (`tests/unit/`)
+- ✅ **utils.test.js** - localStorage helpers, date formatting, API requests, token management
+- ✅ **auth.test.js** - User registration, login, logout, session management
+- ✅ **appliances.test.js** - Appliance filtering, validation, data transformation
+- ✅ **invoices.test.js** - Invoice filtering, amount formatting, validation
+- ✅ **warranty.test.js** - Warranty expiration calculation, status display, validation
+
+#### Feature Tests (`tests/feature/`)
+- ✅ **authentication.test.js** - Complete registration → login → logout flows, multi-user support
+- ✅ **appliance-management.test.js** - Full CRUD operations, search/filter workflows
+- ✅ **invoice-management.test.js** - Invoice management, appliance linking, search
+- ✅ **warranty-tracking.test.js** - Warranty CRUD, expiration tracking, alerts
+
+#### System Tests (`tests/system/`)
+- ✅ **e2e.test.js** - End-to-end user journeys, page navigation, UI interactions
+- ✅ **browser-compatibility.test.js** - localStorage support, DOM rendering, responsive design
+- ✅ **performance.test.js** - Large dataset handling, search performance, memory usage
+
+#### Release Tests (`tests/release/`)
+- ✅ **smoke.test.js** - Critical page loading, essential functions, no console errors
+- ✅ **regression.test.js** - Data persistence, modal interactions, form validation
+- ✅ **acceptance.test.js** - Complete user workflows, error handling, data validation
+
+### 🚀 Quick Start
+
+**1. Install dependencies:**
+```sh
+npm install
+```
+
+**2. Run all tests:**
+```sh
+npm test
+```
+
+**3. Run specific test level:**
+```sh
+npm run test:unit      # Unit tests only
+npm run test:feature   # Feature tests only
+npm run test:system    # System tests only (requires browser)
+npm run test:release   # Release tests only (requires browser)
+```
+
+**4. Generate coverage report:**
+```sh
+npm run test:coverage
+```
+
+### 📈 Test Coverage Targets
+
+- **Overall Coverage**: 80%+
+- **Unit Tests**: 90%+ code coverage
+- **Feature Tests**: All major workflows covered
+- **System Tests**: All pages and critical UI tested
+- **Release Tests**: Production-ready validation
+
+### 🛠️ Testing Technologies
+
+- **Jest** - Modern JavaScript testing framework
+- **jsdom** - DOM implementation for Node.js testing
+- **Puppeteer** - Headless browser automation for E2E tests
+
+### 📚 Test Structure
+
+```
+tests/
+├── setup.js                          # Global test configuration
+├── helpers/
+│   ├── fixtures.js                   # Test data (users, appliances, invoices, warranties)
+│   ├── mocks.js                      # API mocks and responses
+│   └── dom-helpers.js                # DOM testing utilities
+├── unit/                             # Unit Tests (5 files)
+├── feature/                          # Feature Tests (4 files)
+├── system/                           # System Tests (3 files)
+└── release/                          # Release Tests (3 files)
+```
+
+### ✨ Key Testing Features
+
+- **Isolated Tests** - Each test runs independently with clean state
+- **Mock API** - All API calls are mocked for reliable testing
+- **Browser Automation** - Real browser testing with Puppeteer
+- **Fast Execution** - Unit/feature tests run in milliseconds
+- **Comprehensive Coverage** - Every module and workflow tested
+- **CI/CD Ready** - Designed for continuous integration pipelines
+
+### 📖 Detailed Documentation
+
+For comprehensive testing documentation, examples, and best practices, see:
+- [tests/README.md](tests/README.md) - Complete testing guide
+- [jest.config.js](jest.config.js) - Jest configuration
+- [package.json](package.json) - Test scripts and dependencies
 
 
 <!-- CONTACT -->
