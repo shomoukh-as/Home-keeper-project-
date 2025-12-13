@@ -1,37 +1,157 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Home Keeper — Dashboard</title>
-<link rel="stylesheet" href="css/style.css" />
-</head><body class="bg-soft">
-<header class="topbar">
-  <div class="brand">🏠 <strong>Home Keeper</strong></div>
-  <nav class="nav">
-    <a href="dashboard.html" class="active">Dashboard</a>
-    <a href="appliances.html">Appliances</a>
-    <a href="invoices.html">Invoices</a>
-    <a href="warranty.html">Warranty</a>
-    <a href="maintenance.html">Maintenance</a>
-    <button id="logout" class="btn ghost">Logout</button>
-  </nav>
-</header>
-<main class="container">
-  <section class="card">
-    <h2>Welcome, <span id="user-name"></span></h2>
-    <p class="muted">Quick overview of your appliances and records.</p>
-    <div class="grid-3">
-      <div class="widget"><div class="w-title">Appliances</div><div id="cnt-appliances" class="w-value">0</div></div>
-      <div class="widget"><div class="w-title">Maintenance</div><div id="cnt-maint" class="w-value">0</div></div>
-      <div class="widget"><div class="w-title">Invoices</div><div id="cnt-inv" class="w-value">0</div></div>
-    </div>
-    <div id="alerts"></div>
-  </section>
-  <section class="card">
-    <h3>Recent maintenance</h3>
-    <ul id="recent-maint" class="list"></ul>
-  </section>
-</main>
-<script src="js/utils.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/dashboard.js"></script>
-</body></html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#3b82f6">
+  <title>Home Keeper — Dashboard</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/theme.js"></script>
+</head>
+
+<body class="bg-soft">
+  <div class="page-wrapper">
+    <header class="topbar">
+      <div class="brand"><strong>Home Keeper</strong></div>
+      <nav class="nav">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="appliances.html">Appliances</a>
+        <a href="invoices.html">Invoices</a>
+        <a href="warranty.html">Warranty</a>
+        <a href="maintenance.html">Maintenance</a>
+        <button class="theme-toggle" title="Toggle theme">
+          <span class="icon icon-moon">🌙</span>
+          <span class="icon icon-sun">☀️</span>
+        </button>
+        <button id="logout" class="btn ghost">Logout</button>
+      </nav>
+    </header>
+    <main class="container">
+      <!-- Hero Showcase Section -->
+      <section class="card hero-showcase">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2>Welcome, <span id="user-name"></span></h2>
+            <p class="muted">Quick overview of your appliances and records.</p>
+          </div>
+          <div class="hero-visual">
+            <img src="dashboard.gif" alt="Dashboard Preview" class="hero-gif" />
+          </div>
+        </div>
+        <div class="grid-4">
+          <div class="widget">
+            <div class="w-title">Appliances</div>
+            <div id="cnt-appliances" class="w-value">0</div>
+          </div>
+          <div class="widget">
+            <div class="w-title">Maintenance</div>
+            <div id="cnt-maint" class="w-value">0</div>
+          </div>
+          <div class="widget">
+            <div class="w-title">Invoices</div>
+            <div id="cnt-inv" class="w-value">0</div>
+          </div>
+          <div class="widget spending">
+            <div class="w-title">Total Spent</div>
+            <div id="total-spending" class="w-value">$0.00</div>
+          </div>
+        </div>
+      </section>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <!-- Warranty Chart -->
+        <section class="card chart-card">
+          <h3>Warranty Status Distribution</h3>
+          <div class="chart-container">
+            <canvas id="warranty-chart"></canvas>
+          </div>
+        </section>
+
+        <!-- Warranty Alerts -->
+        <section class="card">
+          <h3 style="display: flex; align-items: center; gap: 8px; color: var(--amber-400);">
+            <span>⚠️</span> Warranty Alerts
+          </h3>
+          <div id="alerts" style="margin-top: 1rem;"></div>
+        </section>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+        <!-- Appliances Needing Attention -->
+        <section class="card attention-section">
+          <h3>Appliances Needing Attention</h3>
+          <div id="attention-items"></div>
+        </section>
+
+        <!-- Recent Maintenance -->
+        <section class="card">
+          <h3>Recent Maintenance</h3>
+          <ul id="recent-maint" class="list"></ul>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <div class="brand"><strong>Home Keeper</strong></div>
+            <p>Your smart home appliance management system. Track warranties, maintenance, and invoices all in one
+              place.</p>
+            <div class="footer-social">
+              <a href="#" title="Twitter">𝕏</a>
+              <a href="#" title="Facebook">f</a>
+              <a href="#" title="Instagram">📷</a>
+              <a href="#" title="GitHub">⌨</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="appliances.html">Appliances</a></li>
+              <li><a href="invoices.html">Invoices</a></li>
+              <li><a href="warranty.html">Warranty</a></li>
+              <li><a href="maintenance.html">Maintenance</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section footer-newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get tips on home maintenance and new features.</p>
+            <form onsubmit="return false;">
+              <input type="email" placeholder="Enter your email" />
+              <button class="btn primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Home Keeper. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/modal-utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>

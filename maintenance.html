@@ -1,11 +1,119 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Maintenance — Home Keeper</title><link rel="stylesheet" href="css/style.css" /></head><body class="bg-soft">
-<header class="topbar"><div class="brand">🏠 <strong>Home Keeper</strong></div><nav class="nav"><a href="dashboard.html">Dashboard</a><a href="appliances.html">Appliances</a><a href="invoices.html">Invoices</a><a href="warranty.html">Warranty</a><a href="maintenance.html" class="active">Maintenance</a><button id="logout" class="btn ghost">Logout</button></nav></header>
-<main class="container">
-  <section class="card">
-    <div class="row space"><h2>Maintenance & Malfunctions</h2><button id="btn-add-m" class="btn primary">+ Add Record</button></div>
-    <input id="search-m" placeholder="Search by appliance/issue" class="mb" />
-    <table class="table" id="tbl-m"><thead><tr><th>Appliance</th><th>Date</th><th>Issue</th><th>Notes</th><th>Actions</th></tr></thead><tbody></tbody></table>
-  </section>
-</main>
-<div id="modal" class="modal hidden"><div class="modal-panel"><header><h3 id="modal-title">Add Maintenance</h3><button id="close-modal" class="btn close">✕</button></header><div class="modal-body" id="modal-body"></div><footer class="modal-footer" id="modal-footer"></footer></div></div>
-<script src="js/utils.js"></script><script src="js/auth.js"></script><script src="js/maintenance.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#3b82f6">
+  <title>Maintenance — Home Keeper</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <script src="js/theme.js"></script>
+</head>
+
+<body class="bg-soft">
+  <div class="page-wrapper">
+    <header class="topbar">
+      <div class="brand"><strong>Home Keeper</strong></div>
+      <nav class="nav"><a href="dashboard.html">Dashboard</a><a href="appliances.html">Appliances</a><a
+          href="invoices.html">Invoices</a><a href="warranty.html">Warranty</a><a href="maintenance.html"
+          class="active">Maintenance</a><button class="theme-toggle" title="Toggle theme"><span
+            class="icon icon-moon">🌙</span><span class="icon icon-sun">☀️</span></button><button id="logout"
+          class="btn ghost">Logout</button></nav>
+    </header>
+    <main class="container">
+      <section class="card">
+        <div class="row space">
+          <h2>Maintenance & Malfunctions</h2>
+          <div>
+            <button id="btn-export" class="btn export">Export</button>
+            <button id="btn-add-m" class="btn primary button_123">+ Add Record</button>
+          </div>
+        </div>
+        <input id="search-m" placeholder="Search by appliance/issue" class="mb" />
+        <table class="table" id="tbl-m">
+          <thead>
+            <tr>
+              <th class="sortable" data-column="appliance">Appliance</th>
+              <th class="sortable" data-column="date">Date</th>
+              <th class="sortable" data-column="issue">Issue</th>
+              <th>Notes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+    <div id="modal" class="modal hidden">
+      <div class="modal-panel">
+        <header>
+          <h3 id="modal-title">Add Maintenance</h3><button id="close-modal" class="btn close">✕</button>
+        </header>
+        <div class="modal-body" id="modal-body"></div>
+        <footer class="modal-footer" id="modal-footer"></footer>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <div class="brand"><strong>Home Keeper</strong></div>
+            <p>Your smart home appliance management system. Track warranties, maintenance, and invoices all in one
+              place.</p>
+            <div class="footer-social">
+              <a href="#" title="Twitter">𝕏</a>
+              <a href="#" title="Facebook">f</a>
+              <a href="#" title="Instagram">📷</a>
+              <a href="#" title="GitHub">⌨</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="appliances.html">Appliances</a></li>
+              <li><a href="invoices.html">Invoices</a></li>
+              <li><a href="warranty.html">Warranty</a></li>
+              <li><a href="maintenance.html">Maintenance</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section footer-newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get tips on home maintenance and new features.</p>
+            <form onsubmit="return false;">
+              <input type="email" placeholder="Enter your email" />
+              <button class="btn primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Home Keeper. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/modal-utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/maintenance.js"></script>
+</body>
+
+</html>

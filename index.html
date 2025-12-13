@@ -1,48 +1,77 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Home Keeper — Login</title>
-<link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="Home Keeper - Smart home appliance management system. Track warranties, maintenance, and invoices.">
+  <meta name="theme-color" content="#3b82f6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Home Keeper">
+  <title>Home Keeper — Login</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/theme.js"></script>
 </head>
+
 <body class="bg-soft">
-  <main class="auth-wrap">
-    <div class="card auth-card">
-      <div class="logo">🏠</div>
-      <h1>Home Keeper</h1>
-      <p class="muted">Friendly appliance manager — data saved in your browser.</p>
+  <div class="page-wrapper">
+    <main class="auth-wrap">
+      <div class="card auth-card">
+        <button class="theme-toggle" title="Toggle theme" style="position: absolute; top: 1rem; right: 1rem;">
+          <span class="icon icon-moon">🌙</span>
+          <span class="icon icon-sun">☀️</span>
+        </button>
+        <div class="logo">🏠</div>
+        <h1>Home Keeper</h1>
+        <p class="muted">Friendly appliance manager — data saved in your browser.</p>
 
-      <section id="login-section">
-        <h2>Sign in</h2>
-        <form id="login-form" class="stack">
-          <input id="login-username" placeholder="Username" required />
-          <input id="login-password" type="password" placeholder="Password" required />
-          <div class="row"><button class="btn primary" type="submit">Login</button></div>
-        </form>
-        <p class="muted">No account? <a id="to-register" href="#">Create one</a></p>
-        <p id="login-msg" class="msg"></p>
-      </section>
+        <section id="login-section">
+          <h2>Sign in</h2>
+          <form id="login-form" class="stack">
+            <input id="login-username" placeholder="Username" required />
+            <input id="login-password" type="password" placeholder="Password" required />
+            <div class="row"><button class="btn primary" type="submit">Login</button></div>
+          </form>
+          <p class="muted">No account? <a id="to-register" href="#">Create one</a></p>
+          <p id="login-msg" class="msg"></p>
+        </section>
 
-      <section id="register-section" class="hidden">
-        <h2>Create account</h2>
-        <form id="register-form" class="stack">
-          <input id="reg-username" placeholder="Choose a username" required />
-          <input id="reg-password" type="password" placeholder="Choose a password" required />
-          <div class="row"><button class="btn primary" type="submit">Register</button></div>
-        </form>
-        <p class="muted">Already have an account? <a id="to-login" href="#">Sign in</a></p>
-        <p id="reg-msg" class="msg"></p>
-      </section>
+        <section id="register-section" class="hidden">
+          <h2>Create account</h2>
+          <form id="register-form" class="stack">
+            <input id="reg-username" placeholder="Choose a username" required />
+            <input id="reg-password" type="password" placeholder="Choose a password" required />
+            <div class="row"><button class="btn primary" type="submit">Register</button></div>
+          </form>
+          <p class="muted">Already have an account? <a id="to-login" href="#">Sign in</a></p>
+          <p id="reg-msg" class="msg"></p>
+        </section>
 
-      <small class="muted">Frontend demo — no server. Keep sensitive data out of this demo.</small>
-    </div>
-  </main>
-<script src="js/utils.js"></script>
-<script src="js/auth.js"></script>
-<script>
-document.getElementById('to-register').addEventListener('click', e=>{ e.preventDefault(); document.getElementById('login-section').classList.add('hidden'); document.getElementById('register-section').classList.remove('hidden'); });
-document.getElementById('to-login').addEventListener('click', e=>{ e.preventDefault(); document.getElementById('register-section').classList.add('hidden'); document.getElementById('login-section').classList.remove('hidden'); });
-</script>
+        <small class="muted">© 2024 Home Keeper. All rights reserved.</small>
+      </div>
+    </main>
+    <footer class="footer" style="padding: 1rem 2rem;">
+      <div class="footer-bottom" style="padding-top: 0;">
+        <p>© 2024 Home Keeper. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById('to-register').addEventListener('click', e => { e.preventDefault(); document.getElementById('login-section').classList.add('hidden'); document.getElementById('register-section').classList.remove('hidden'); });
+    document.getElementById('to-login').addEventListener('click', e => { e.preventDefault(); document.getElementById('register-section').classList.add('hidden'); document.getElementById('login-section').classList.remove('hidden'); });
+  </script>
 </body>
+
 </html>
