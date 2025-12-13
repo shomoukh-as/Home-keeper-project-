@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   let applianceNames = [];
   let sortColumn = 'appliance';
   let sortDirection = 'asc';
+  let filterStatus = '';
+
+  // Status filter handler
+  const filterStatusEl = document.getElementById('filter-status');
+  if (filterStatusEl) {
+    filterStatusEl.addEventListener('change', () => {
+      filterStatus = filterStatusEl.value;
+      render();
+    });
+  }
 
   // Initialize modal utilities
   ModalUtils.initClickOutside(modal, closeModal);
@@ -48,8 +58,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   function render() {
     tbl.innerHTML = '';
 
+    // Apply status filter
+    let filtered = warranties;
+    if (filterStatus) {
+      filtered = warranties.filter(w => {
+        const days = daysBetween(w.end);
+        if (filterStatus === 'safe') return days > 90;
+        if (filterStatus === 'warning') return days >= 30 && days <= 90;
+        if (filterStatus === 'danger') return days >= 0 && days < 30;
+        if (filterStatus === 'expired') return days < 0;
+        return true;
+      });
+    }
+
     // Apply sorting
-    const sorted = sortData(warranties, sortColumn, sortDirection);
+    const sorted = sortData(filtered, sortColumn, sortDirection);
 
     sorted.forEach((w, i) => {
       const days = daysBetween(w.end);
